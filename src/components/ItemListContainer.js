@@ -3,6 +3,17 @@ import ItemCount from './ItemCount';
 import ItemList from './ItemList';
 import products from "../products.json"
 
+const promesa = new Promise((resolve, reject) => {
+    setTimeout(() =>{
+        const resultado = <ItemList/>
+        resolve=(resultado);
+    }, 2000)
+})
+
+promesa.then((parametro)=>{
+    document.getElementById("test").innerHTML = parametro;
+})
+
 const ItemListContainer = ({ greeting}) => {
 
     function onAddCallBack(n){
