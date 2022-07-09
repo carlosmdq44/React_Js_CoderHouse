@@ -5,7 +5,7 @@ const products = [
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra nibh cras pulvinar mattis nunc. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Bibendum at varius vel pharetra vel turpis nunc. Pellentesque dignissim enim sit amet venenatis",
       price: "$1.99",
-      pictureUrl: `${process.env.PUBLIC_URL}/assets/1.png`,
+      image:"https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
       category: "category",
     },
     {
@@ -14,11 +14,11 @@ const products = [
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra nibh cras pulvinar mattis nunc. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Bibendum at varius vel pharetra vel turpis nunc. Pellentesque dignissim enim sit amet venenatis",
       price: "$2.99",
-      pictureUrl: `${process.env.PUBLIC_URL}/assets/2.png`,
+      image:"https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
       category: "category",
     },
     {
-      id: 2,
+      id: 3,
       title: "Three",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra nibh cras pulvinar mattis nunc. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Bibendum at varius vel pharetra vel turpis nunc. Pellentesque dignissim enim sit amet venenatis",
