@@ -1,18 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ItemCount from './ItemCount';
 import ItemList from './ItemList';
-import products from "../products.json"
-
-const promesa = new Promise((resolve, reject) => {
-    setTimeout(() =>{
-        const resultado = <ItemList/>
-        resolve=(resultado);
-    }, 2000)
-})
-
-promesa.then((parametro)=>{
-    document.getElementById("test").innerHTML = parametro;
-})
+import getData from "../products";
 
 const ItemListContainer = ({ greeting}) => {
 
@@ -20,12 +9,24 @@ const ItemListContainer = ({ greeting}) => {
         alert(`agregados ${n} productos `);
     }
 
+    const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    console.log("products: ", products);
 
     useEffect(() => {
-        setTimeout(setLoading, 2000, false);
-        console.log('useEffect');
-    }, []);
+        const getProducts = async () => {
+          try {
+            const response = await getData;
+            setProducts(response);
+          } catch (error) {
+            console.log(error);
+          } finally {
+            setLoading(false);
+          }
+        };
+        getProducts();
+      }, []);
+    
 
  return (
     <div>
