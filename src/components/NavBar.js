@@ -1,4 +1,5 @@
 import CarWidget  from "./CarWidget";
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () =>{
     return <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,18 +10,18 @@ const NavBar = () =>{
       </button>
       <div className="collapse navbar-collapse position-absolute top-25 end-0 px-3" id="navbarNav">
         <ul className="navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Products</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">About</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Contact</a>
-          </li>
+                  <NavLink className="NavLink" to="/Home">
+                                     Home                                      
+                  </NavLink>
+                  <NavLink className="NavLink" to="/Category">
+                                     Category                                      
+                  </NavLink>
+                  <NavLink className="NavLink" to="/About">
+                                     About                                      
+                  </NavLink>
+                  <NavLink className="NavLink" to="/Contact">
+                                     Contact                                      
+                  </NavLink>  
         </ul>
         <CarWidget/>
       </div>
