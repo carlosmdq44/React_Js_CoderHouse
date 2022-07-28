@@ -3,27 +3,38 @@ import ItemList from '../components/ItemList';
 
 const Home = () => {
 
-const [results, setResults] = useState([]);
-const [isloading, setIsLoading] = useState(true);
-const [err, setErr] = useState("");
+  const [results, setResults] = useState([]);
 
-useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-    .then((res) => res.json())
-    .then((json) => {
-      setIsLoading(false);
-      setResults(json.results);
-    })
-    .catch((err) => {
-      setErr("Ocurrio un error inesperado");
-    });
-  }, []); 
-
-  if(isloading){
-    return <span>Cargando....</span>;
-  }
-
-  return <div>{err ? <span>{err}</span> : <ItemList items={results} />}</div>;
-};
+  const [err, setErr] = useState("");
+  
+  const fetchData = async () => {
+  
+      try {
+  
+        const rawResponse = await fetch(`https://fakestoreapi.com/products`);
+  
+        const finalData = await rawResponse.json();
+  
+        console.log(finalData);
+  
+        setResults(finalData);
+  
+      } catch (error) {
+  
+          setErr(error);
+  
+      }
+  
+    };
+  
+  useEffect(() => {
+  
+    fetchData();
+  
+      }, []);
+  
+    return <div>{err ? <span>{err}</span> : <ItemList items={results}/>}</div>;
+  
+  };
 
 export default Home;
