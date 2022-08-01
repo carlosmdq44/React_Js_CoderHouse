@@ -1,40 +1,44 @@
-import React, { useState, useEffect } from "react";
-import ItemList from "./ItemList";
+import React, {useState, useEffect} from 'react';
+import ItemCount from './ItemCount';
+import ItemList from './ItemList';
+import getData from "../products";
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ greeting}) => {
 
-const [results, setResults] = useState([]);
-
-const [err, setErr] = useState("");
-
-const fetchData = async () => {
-
-    try {
-
-      const rawResponse = await fetch(`[fakestoreapi.com/products`);
-
-      const finalData = await rawResponse.json();
-
-      console.log(finalData);
-
-      setResults(finalData);
-
-    } catch (error) {
-
-        setErr(error);
-
+    function onAddCallBack(n){
+        alert(`agregados ${n} productos `);
     }
 
-  };
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    console.log("products: ", products);
 
-useEffect(() => {
+    useEffect(() => {
+        const getProducts = async () => {
+          try {
+            const response = await getData;
+            setProducts(response);
+          } catch (error) {
+            console.log(error);
+          } finally {
+            setLoading(false);
+          }
+        };
+        getProducts();
+      }, []);
+    
 
-  fetchData();
-
-    }, []);
-
-  return <div>{err ? <span>{err}</span> : <ItemList items={results}/>}</div>;
-
+ return (
+    <div>
+     {greeting}
+    <ItemCount 
+       stock={5}
+       initial={1} 
+       onAdd = {onAddCallBack}
+       />
+      {loading ? (<h3>CARGANDO</h3>):(<ItemList items={products}/>)}    
+    </div>
+    );
 };
 
 export default ItemListContainer;

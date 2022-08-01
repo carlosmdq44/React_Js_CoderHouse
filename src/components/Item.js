@@ -1,31 +1,27 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
-import { Button , Card, Col, Row } from 'react-bootstrap';
-import { CartContext } from '../context/CartContext';
 
 const Item = ({id, title, price, description, category, image}) => {
-
-  const CartContextValue = useContext(CartContext);
-  
     return (
-      <Row xs={1} md={3} className="g-4">
-      {Array.from({ length: 3 }).map((_, idx) => (
-        <Col>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={image} />
-          <Card.Body>
-            <Card.Title>{title}</Card.Title>
-            <Card.Text>
-             {price}
-            </Card.Text>
-            <Link  to={`/product/${id}`}> <button className="btn btn-primary" >Detalle</button></Link>
-          </Card.Body>
-        </Card>
-        </Col>
-      ))}
-    </Row>
-  );
-}
+        <div class="row my-2 p-3">
+            <div class="col">
+                <div className="card">
+                <img src={image} className="card-img-top" alt={title} />
+                <div className="card-body">
+                    <h2 className="card-title">{title}</h2>
+                    <p className="card-text">{description}</p>
+                    <p>{price}</p>
+                    <p className="card-text">{category}</p>
+                    <div>
+                    <Link to={"product/" + id }>{title}</Link>
+                    </div>
+                    <button className="btn btn-primary">Detalle</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    );
+};
 
 export default Item;
 
