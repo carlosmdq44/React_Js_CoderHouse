@@ -1,44 +1,45 @@
-import React, {useState, useEffect} from 'react';
-import ItemCount from './ItemCount';
-import ItemList from './ItemList';
-import getData from "../products";
+import {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import ItemList from '../components/ItemList';
+import Loader from '../Loader';
 
-const ItemListContainer = ({ greeting}) => {
+function ItemListContainer({greeting}) {
 
-    function onAddCallBack(n){
-        alert(`agregados ${n} productos `);
-    }
-
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    console.log("products: ", products);
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
+    const { idCategory } = useParams()
 
     useEffect(() => {
-        const getProducts = async () => {
-          try {
-            const response = await getData;
-            setProducts(response);
-          } catch (error) {
-            console.log(error);
-          } finally {
-            setLoading(false);
-          }
-        };
-        getProducts();
-      }, []);
-    
+        const db = getFirestore();
+        if (idCategory) {
+            const queryCollectionCategory = query(collection(db, 'products'), where('category', '==', idCategory) )
+            getDocs(queryCollectionCategory)
+            .then(resp => setProducts( resp.docs.map(prod => ({ id: prod.id, ...prod.data()}))))
+            .finally(() => setLoading(false))
+        } else {
+            const queryCollection = collection(db, 'products')
+            getDocs(queryCollection)
+            .then(resp => setProducts( resp.docs.map(prod => ({ id: prod.id, ...prod.data()}))))
+            .finally(() => setLoading(false))
+        }  
+    }, [idCategory])
 
- return (
-    <div>
-     {greeting}
-    <ItemCount 
-       stock={5}
-       initial={1} 
-       onAdd = {onAddCallBack}
-       />
-      {loading ? (<h3>CARGANDO</h3>):(<ItemList items={products}/>)}    
-    </div>
-    );
-};
+    return (
+        <div>
+            <h2 className="text-center"> {greeting} </h2>
+            <div className="container">
+                <div className="row">
+                    { loading 
+                    ? 
+                        <Loader />
+                    :
+                        <ItemList products={products}/>
+                    }
+                </div>
+            </div>
+        </div>
+    )
+}
 
 export default ItemListContainer;

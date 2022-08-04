@@ -1,29 +1,38 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import ItemList from '../components/ItemList';
+import Loader from '../Loader';
 
-const Home = () => {
+function Home ({greeting}) {
 
-const [results, setResults] = useState([]);
-const [isloading, setIsLoading] = useState(true);
-const [err, setErr] = useState("");
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
+    
 
-useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-    .then((res) => res.json())
-    .then((json) => {
-      setIsLoading(false);
-      setResults(json.results);
-    })
-    .catch((err) => {
-      setErr("Ocurrio un error inesperado");
-    });
-  }, []); 
+    useEffect(() => {
+        const db = getFirestore();
+            const queryCollection = collection(db, 'products')
+            getDocs(queryCollection)
+            .then(resp => setProducts( resp.docs.map(prod => ({ id: prod.id, ...prod.data()}))))
+            .finally(() => setLoading(false))
+    }, [])
 
-  if(isloading){
-    return <span>Cargando....</span>;
-  }
-
-  return <div>{err ? <span>{err}</span> : <ItemList items={results} />}</div>;
-};
+    return (
+        <div>
+            <h2 className="text-center"> {greeting} </h2>
+            <div className="container">
+                <div className="row">
+                    { loading 
+                    ? 
+                        <Loader />
+                    :
+                        <ItemList products={products}/>
+                    }
+                </div>
+            </div>
+        </div>
+    )
+}
 
 export default Home;

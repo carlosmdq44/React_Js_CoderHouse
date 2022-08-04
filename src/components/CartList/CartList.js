@@ -18,25 +18,25 @@ const CartList = () => {
             </div>
             <hr></hr>
             <div className="row justify-content-center text-center">
-                {cartList.map(prod => 
-                    <div className="row align-items-center" key={prod.id}>
+                {cartList.map(item => 
+                    <div className="row align-items-center" key={item.id}>
                         <div className="col-lg-3 col-sm-3">
-                            <img src={prod.img} style={{width:150}}></img>
+                            <img src={item.img} style={{width:150}}></img>
                         </div>
                         <div className="col-lg-3 col-sm-3">
-                            <h5>{prod.name}</h5>
+                            <h5>{item.title}</h5>
                         </div>
                         <div className="col-lg-2 col-sm-2">
-                            <h5>${prod.price}</h5>
+                            <h5>${item.price}</h5>
                         </div>
                         <div className="col-lg-1 col-sm-1">
-                            <h5>{prod.quantity}</h5>
+                            <h5>{item.quantity}</h5>
                         </div>
                         <div className="col-lg-2 col-sm-2">
-                            <h5>${prod.quantity * prod.price}</h5>
+                            <h5>${item.quantity * item.price}</h5>
                         </div>
                         <div className="col-lg-1 col-sm-1">
-                            <button className="btn btn-danger bg-gradient" onClick={() => removeItem(prod.id)}>Eliminar</button>
+                            <button className="btn btn-danger bg-gradient" onClick={() => removeItem(item.id)}>Eliminar</button>
                         </div>
                         <hr></hr>
                     </div>

@@ -1,32 +1,35 @@
-import CarWidget  from "./CarWidget";
-import { NavLink } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
+import CarWidget from '../cart/CartWidget';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
-const NavBar = () =>{
-    return <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <div className="container-fluid">
-      <a className="navbar-brand" href="#">World Market</a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse position-absolute top-25 end-0 px-3" id="navbarNav">
-        <ul className="navbar-nav">
-                  <NavLink className="NavLink" to="/Home">
-                                     Home                                      
-                  </NavLink>
-                  <NavLink className="NavLink" to="/Category">
-                                     Category                                      
-                  </NavLink>
-                  <NavLink className="NavLink" to="/About">
-                                     About                                      
-                  </NavLink>
-                  <NavLink className="NavLink" to="/Contact">
-                                     Contact                                      
-                  </NavLink>  
-        </ul>
-        <CarWidget/>
-      </div>
-    </div>
-  </nav>
+function NavBar({cartCount}) {
+  return (
+    <>
+      <Nav className="justify-content-center position-relative" style={{backgroundColor: '#023c59', height: '50px' }} activeKey="/home">
+        <Nav.Item className='position-absolute top-0 end-0 px-2'>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link className='text-white' href="/">Inicio</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+        <NavDropdown title="Cateogorias" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/products/category/men's clothing">Men's clothing</NavDropdown.Item>
+              <NavDropdown.Item href="/products/category/women's clothing">Women's clothing</NavDropdown.Item>
+              <NavDropdown.Item href="/products/category/jewelery">Jewelery</NavDropdown.Item>
+              <NavDropdown.Item href="/products/category/jewelery">Electronics</NavDropdown.Item>
+            </NavDropdown>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link className='text-white' href="/Contact">Contacto</Nav.Link>
+        </Nav.Item>
+        <Link className="cart-mobile" style={{paddingRight:'2rem'}} to="/cart">
+                        <CarWidget cartCount={cartCount} />
+         </Link> 
+      </Nav>
+    </>
+  );
 }
+
 
 export default NavBar;

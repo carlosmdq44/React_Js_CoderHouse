@@ -1,37 +1,33 @@
 import { useState } from "react";
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const  [count, setCount] = useState(initial);
+function ItemCount({initial, max, onAdd}) {
 
-    const incrementar = () =>{
-        setCount(count +1);
-    };
+    const [value, setValue] = useState(initial)
 
-    const decrementar = () =>{
-        setCount((valAnt) => (valAnt > 0 ? count -1 : count));
-    };
+    const btnPlus = () => {
+        if (value < max) {
+            setValue(value + 1);
+        } 
+    }
 
+    const btnMinus = () => {
+        if (value > initial)  {
+            setValue(value - 1)
+        }
+    }
+    
     return (
-    <div>
-        <h3>{count}</h3>
-        <button onClick ={decrementar}>-</button>
-        <button onClick ={incrementar}>+</button>
-        <button
-             onClick ={() => {
-                  if (count <= stock){
-                     onAdd(count);
-                 }
-                 else {
-                     alert("No hay suficientes productos");
-                 }
-                 ////count <= stock && onAdd(count);
-             }}
-             >
-                Agregar al carrito
-        </button>
+        <div>
+            <div className="d-flex justify-content-center align-items-center">
+                <button onClick={btnMinus} className="btn btn-dark">-</button>
+                <h3 className="m-3">{value}</h3>
+                <button onClick={btnPlus} className="btn btn-dark">+</button>
+            </div>
+            <div className="d-flex justify-content-center">
+                <button onClick={()=> onAdd(value)} className="btn btn-danger bg-gradient mt-3">Añadir Carrito</button>
+            </div>
+        </div>
+    )
+}
 
-    </div>
-  );
-};
-
-export default ItemCount
+export default ItemCount;

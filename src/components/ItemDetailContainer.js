@@ -1,44 +1,35 @@
-import React, {useState, useEffect} from 'react';
-import ItemCount from './ItemCount';
-import getData from "../products";
-import ItemDetail from './ItemDetail';
+import {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
+import ItemDetail from '../components/ItemDetail';
+import LoaderSecondary from '../LoaderSecondary';
 
-const ItemDetailContainer = ({ greeting}) => {
+function ItemDetailContainer() {
 
-    function onAddCallBack(n){
-        alert(`agregados ${n} productos `);
-    }
 
-    const [product, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    console.log("products: ", product);
-
-    useEffect(() => {
-        const getProducts = async () => {
-          try {
-            const response = await getData;
-            setProducts(response);
-          } catch (error) {
-            console.log(error);
-          } finally {
-            setLoading(false);
-          }
-        };
-        getProducts();
-      }, []);
+    const {idProduct} = useParams()
+    const [loading, setLoading] = useState(true)
+    const [product, setProduct] = useState([])
     
+    useEffect(() => {
+        const db = getFirestore()
+        const queryDb = doc(db, 'products', idProduct )
+        getDoc(queryDb)
+        .then(resp => setProduct( { id: resp.id, ...resp.data() } ))
+        .finally(() => setLoading(false))
+    }, [idProduct])
 
- return (
-    <div>
-     {greeting}
-    <ItemCount 
-       stock={5}
-       initial={1} 
-       onAdd = {onAddCallBack}
-       />
-      {loading ? (<h3>CARGANDO</h3>):(<ItemDetail item={product[0]}/>)}    
-    </div>
-    );
-};
+    return (
+        <div>
+            {loading
+            ?
+                <LoaderSecondary />
+            :
+                <ItemDetail product={product}/>
+            }
+        </div>
+    )
+}
+
 
 export default ItemDetailContainer;

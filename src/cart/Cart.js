@@ -1,7 +1,7 @@
-import React, {useContext} from 'react'
-import { Link } from 'react-router-dom'
-import { CartContext } from '../context/CartContext'
-import CartList from '../components/CartList/CartList'
+import React, {useContext} from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
+import CartList from '../components/CartList/CartList';
 
 function Cart() {
 
@@ -27,4 +27,4 @@ function Cart() {
     )
 }
 
-export default Cart
+export default Cart;
