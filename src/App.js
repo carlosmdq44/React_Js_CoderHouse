@@ -14,8 +14,10 @@ import UncontrolledExample from './components/UncontrolledExample';
 import ItemListCategory from './components/ItemListCategory';
 import './firebase';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import FormBuyer from './components/FormBuyer';
 
 function App() {
+
   return (
     <>
     <CartContextProvider>
@@ -27,8 +29,9 @@ function App() {
              <Route path="/" element={<ItemListContainer greetings="Bienvenidos a E-Commerce Mundo de Ventas" />} />
               <Route index element={<Home />}/>
               <Route path="product/:idProduct" element={<ItemDetailContainer/>} />
-              <Route path="product/category/:Idcategory" element={<ItemListCategory/>} />
+              <Route path="/category/:idCategory" element={<ItemListContainer greeting="Bienvenido a Mercado Libre!" />} />
               <Route exact path="/Cart" element={<Cart/>}/>	
+              <Route exact path="/checkout" element={<FormBuyer/>}/>		
               <Route path="/Contact" element={ < Contact /> } />
            </Routes>
          </BrowserRouter>

@@ -14,10 +14,10 @@ function NavBar({cartCount}) {
         </Nav.Item>
         <Nav.Item>
         <NavDropdown title="Cateogorias" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/products/category/men's clothing">Men's clothing</NavDropdown.Item>
-              <NavDropdown.Item href="/products/category/women's clothing">Women's clothing</NavDropdown.Item>
-              <NavDropdown.Item href="/products/category/jewelery">Jewelery</NavDropdown.Item>
-              <NavDropdown.Item href="/products/category/jewelery">Electronics</NavDropdown.Item>
+              <NavDropdown.Item href="/category/men's clothing">Men's clothing</NavDropdown.Item>
+              <NavDropdown.Item href="/category/women's clothing">Women's clothing</NavDropdown.Item>
+              <NavDropdown.Item href="/category/jewelery">Jewelery</NavDropdown.Item>
+              <NavDropdown.Item href="/category/electronics">Electronics</NavDropdown.Item>
             </NavDropdown>
         </Nav.Item>
         <Nav.Item>
