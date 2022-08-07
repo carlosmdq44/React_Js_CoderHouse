@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import ItemList from '../components/ItemList';
 import Loader from '../Loader';
-
+import UncontrolledExample from '../components/UncontrolledExample';
 function ItemListContainer({greeting}) {
 
     const [products, setProducts] = useState([])
@@ -27,6 +27,7 @@ function ItemListContainer({greeting}) {
 
     return (
         <div>
+            <UncontrolledExample/>
             <h2 className="text-center"> {greeting} </h2>
             <div className="container">
                 <div className="row">
