@@ -7,10 +7,10 @@ const CartList = () => {
 
     const { cartList, totalBuy, removeItem, emptyCart } = useContext(CartContext)
         return (
-            <div style={{ display: 'flex', justifyContent: 'center',margin: 'auto', color: 'black' }}>
+            <div style={{borderTop:'10px solid white' ,display: 'flex', justifyContent: 'center',margin: 'auto', color: 'black' }}>
                      <div>
-                        <table className="table" >
-                            <tbody className='table' style={{backgroundColor: '#023c59'}}>
+                        <table className="table"  >
+                            <tbody className='table' style={{backgroundColor: '#023c59',color:'white'}}>
                             <tr>
                                 <th>Image</th>
                                 <th>Product name</th>
