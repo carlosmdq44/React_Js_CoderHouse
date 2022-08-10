@@ -62,7 +62,7 @@ const FormBuyer = () => {
             {creatingOrder
             ?
                 <>      
-                    <h4 className="mt-5 text-center">Procesando su orden, espere un momento...</h4>
+                    <h4 className="mt-5 text-center">Processing your order, please wait a moment...</h4>
                     <LoaderSecondary />
                 </>
             :
@@ -70,11 +70,11 @@ const FormBuyer = () => {
             ? 
                 <div className="container">
                     <div className="py-5 text-center mt-5">
-                        <h2 className="mt-5">¡Gracias por elegirnos!</h2>
-                        <h4 className="my-5">La compra se ha realizado exitosamente.</h4>
-                        <strong>El ID de tu compra es {orderId}</strong><br />
+                        <h2 className="mt-5">Thank you for choosing us!</h2>
+                        <h4 className="my-5">The purchase has been made successfully</h4>
+                        <strong>The ID of your purchase is {orderId}</strong><br />
                         <Link className="btn btn-danger bg-gradient mt-5" to={`/`}>
-                            <strong>Volver al inicio</strong>
+                            <strong>Go Back</strong>
                         </Link>
                     </div>
                 </div>
@@ -89,11 +89,11 @@ const FormBuyer = () => {
                                 >
                                     <div className="contact table border border-dark mt-3" style={{width:'80%' , margin:'auto'}}>
                                     <div className="mb-3 d-flex flex-column align-items-center mt-1">
-                                        <label className="form-label">Nombre</label>
+                                        <label className="form-label">Name</label>
                                         <input type="name" className="form-control form-control--color " name="name" placeholder="Pedrito Pedrazo" defaultValue={formData.name} required />
                                     </div>
                                     <div className="mb-3 d-flex flex-column align-items-center mt-1">
-                                        <label className="form-label">Teléfono</label>
+                                        <label className="form-label">Phone</label>
                                         <input type="number" className="form-control form-control--color" name="phone" placeholder="15xxxxxxxxx" defaultValue={formData.phone} required />
                                     </div>
                                     <div className="mb-3 d-flex flex-column align-items-center">
@@ -101,12 +101,12 @@ const FormBuyer = () => {
                                         <input type="email" className="form-control form-control--color" name="email" placeholder="pedrito@ejemplo.com" defaultValue={formData.email} required />
                                     </div>
                                     <div className="mb-3 d-flex flex-column align-items-center">
-                                        <label className="form-label">Confirmar Email</label>
+                                        <label className="form-label">Email Confirm </label>
                                         <input type="email" className="form-control form-control--color" name="emailConfirm" placeholder="pedrito@ejemplo.com" defaultValue={formData.emailConfirm} required />
                                     </div>
                                     <button className="btn btn-danger bg-gradient d-flex justify-content-center align-self-center" style={{width:'100%' , margin:'auto'}}
                                         disabled={!formData.name || !formData.phone || !formData.email || formData.email !== formData.emailConfirm || cartList.length == 0}>
-                                        Comprar
+                                        Buy
                                     </button>
                                     </div>
                                 </form>

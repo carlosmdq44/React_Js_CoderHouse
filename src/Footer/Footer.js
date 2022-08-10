@@ -35,7 +35,7 @@ function Footer() {
       </div>
       <div className="text-center p-3" style={{backgroundColor: '#023c59', height: '50px' }}>
         © 2022 Copyright:
-        <a className="text-white" href="https://mdbootstrap.com/"> Desarrollador Carlos Figueroa</a>
+        <a className="text-white" href="https://mdbootstrap.com/"> Developer Carlos Figueroa</a>
       </div>
     </footer>
       

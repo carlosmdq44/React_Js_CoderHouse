@@ -40,8 +40,11 @@ const Contact = () => {
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>State</Form.Label>
               <Form.Select defaultValue="Choose...">
-                <option>Choose...</option>
-                <option>...</option>
+                <option>Countries...</option>
+                <option>Argentina</option>
+                <option>Brasil</option>
+                <option>Chile</option>
+                <option>Uruguay</option>
               </Form.Select>
             </Form.Group>
     
@@ -51,11 +54,7 @@ const Contact = () => {
             </Form.Group>
           </Row>
     
-          <Form.Group className="mb-3" id="formGridCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-    
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" style={{backgroundColor:'#023c59'}}>
             Submit
           </Button>
         </Form>

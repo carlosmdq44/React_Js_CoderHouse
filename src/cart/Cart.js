@@ -13,10 +13,10 @@ function Cart() {
             ? 
                 <div className="container mt-5">
                     <div className="row text-center justify-content-center">
-                        <h3 className="my-5"><strong>No hay productos en tu carrito</strong></h3>
-                        <h4 className="my-5">¿Qué te parece si agregás algunos?</h4>
+                        <h3 className="my-5"><strong>There aren't products in your cart</strong></h3>
+                        <h4 className="my-5">Would you like to add any product?</h4>
                         <Link className="btn btn-danger bg-gradient w-25" to="/">
-                            Ir a comprar
+                        Press here to buy
                         </Link>
                     </div>
                 </div>

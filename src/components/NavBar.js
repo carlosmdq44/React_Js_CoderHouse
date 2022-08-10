@@ -10,10 +10,10 @@ function NavBar({cartCount}) {
         <Nav.Item className='position-absolute top-0 end-0 px-2'>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link className='text-white' href="/">Inicio</Nav.Link>
+          <Nav.Link className='text-white' href="/">Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-        <NavDropdown title="Cateogorias" id="basic-nav-dropdown">
+        <NavDropdown title="Category" id="basic-nav-dropdown">
               <NavDropdown.Item href="/category/men's clothing">Men's clothing</NavDropdown.Item>
               <NavDropdown.Item href="/category/women's clothing">Women's clothing</NavDropdown.Item>
               <NavDropdown.Item href="/category/jewelery">Jewelery</NavDropdown.Item>
@@ -21,9 +21,9 @@ function NavBar({cartCount}) {
             </NavDropdown>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link className='text-white' href="/Contact">Contacto</Nav.Link>
+          <Nav.Link className='text-white' href="/Contact">Contact</Nav.Link>
         </Nav.Item>
-        <Link className="cart-mobile" style={{paddingRight:'2rem'}} to="/cart">
+        <Link className="cart-mobile" style={{paddingRight:'2rem' , paddingTop:'4px'}} to="/cart">
                         <CarWidget cartCount={cartCount} />
          </Link> 
       </Nav>
