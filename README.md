@@ -33,7 +33,7 @@ VISUALIZACION DEL PROYECTO
 
 <h1 align="center"> COMPRA </h1>
 
-![image](https://user-images.githubusercontent.com/71535916/183794465-422c9e95-d01b-42f4-8e06-fb3d671aa716.png)
+![image](https://user-images.githubusercontent.com/71535916/183795907-183f25ad-5ae8-4b94-b43f-d46ce13181f6.png)
 
 <h1 align="center"> PROCESA COMPRA </h1>
 
