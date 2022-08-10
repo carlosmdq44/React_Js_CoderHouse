@@ -2,7 +2,9 @@ Curso de Reactjs, realizado en CoderHouse
 
 
 <h3>Index</h3>
+
 ![image](https://user-images.githubusercontent.com/71535916/183894438-7462e754-dde9-4045-9a71-7493ee769d53.png)
+
 <h3>Listado de Productos Index</h3>
 ![image](https://user-images.githubusercontent.com/71535916/183894616-b2b929c7-152e-4878-b3f2-099d1e0b8879.png)
 
