@@ -35,7 +35,7 @@ World Market Store es un e-commerce para la venta de electronica,vestimenta y pr
 
 **<h3 align="center">Finalizacion compra y te devuelve un ID con el numero de orden 📌</h3>**
 
-![image](https://user-images.githubusercontent.com/71535916/183895247-eb7c19ad-3aec-42e9-9456-bedb7d6da93a.png)
+ ![image](https://user-images.githubusercontent.com/71535916/183895247-eb7c19ad-3aec-42e9-9456-bedb7d6da93a.png)
 
 ## Link vercel:
 
