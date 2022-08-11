@@ -9,7 +9,7 @@ Curso de Reactjs, realizado en CoderHouse
 
 ![image](https://user-images.githubusercontent.com/71535916/183894616-b2b929c7-152e-4878-b3f2-099d1e0b8879.png)
 
-<h3>Detalle</h3>
+<h3center >Detalle</h3>
 
 ![image](https://user-images.githubusercontent.com/71535916/183894721-3ca9cae2-7d27-453c-b7d3-a0bb3ae5c2ab.png)
 
@@ -29,5 +29,5 @@ Curso de Reactjs, realizado en CoderHouse
 
 ![image](https://user-images.githubusercontent.com/71535916/183895247-eb7c19ad-3aec-42e9-9456-bedb7d6da93a.png)
 
-LINK VESEL
+LINK VERCEL
 https://world-market-react.vercel.app/
