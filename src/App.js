@@ -1,17 +1,16 @@
 import React from 'react';
-import NavBar from './components/NavBar';
+import NavBar from './components/Navs/NavBar';
 import './App.css';
-import ItemListContainer from './components/ItemListContainer';
+import ItemListContainer from './components/Items/ItemListContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Contact from './Contact/Contact';
-import CartContextProvider from './context/CartContext';
-import Cart from './cart/Cart';
-import NavBar1 from './components/NavBar1';
+import Contact from './components/Contact/Contact';
+import CartContextProvider from './components/context/CartContext';
+import Cart from './components/cart/Cart';
+import NavBar1 from './components/Navs/NavBar1';
 import './firebase';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import FormBuyer from './components/FormBuyer';
-import Footer from './Footer/Footer';
-
+import ItemDetailContainer from './components/Items/ItemDetailContainer';
+import FormBuyer from './components/Buyer/FormBuyer';
+import Footer from './components/Footer/Footer'
 function App() {
 
   return (

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
-import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../context/CartContext'
 
 const CartList = () => {
 
-    const { cartList, totalBuy, removeItem, emptyCart } = useContext(CartContext)
+    const { cartList, totalBuy, emptyCart } = useContext(CartContext)
         return (
             <div style={{borderTop:'10px solid white' ,display: 'flex', justifyContent: 'center',margin: 'auto', color: 'black' }}>
                      <div>
